@@ -1,0 +1,23 @@
+<% @stock_quote = StockQuote::Stock.quote(@stock.ticker) %>
+
+<p>
+  <strong>Ticker:</strong>
+  
+    <strong>Company Name: </strong><%= @stock_quote.name %> - <%= @stock_quote.symbol %><br/>
+    <strong>Current Ask: </strong><%= @stock_quote.ask %><br/>
+    <strong>Earnings Per Share: </strong><%= @stock_quote.earnings_share %><br/>
+    <strong>Price/Earning Ratio: </strong><%= @stock_quote.pe_ratio %><br/>
+    <strong>Market Cap: </strong><%= @stock_quote.market_capitalization %><br/>
+    <strong>Previous Close: </strong><%= @stock_quote.previous_close %><br/>
+    <strong>Stock Open: </strong><%= @stock_quote.open %><br/>
+    <strong>Day's Range: </strong><%= @stock_quote.days_range %><br/>
+    <strong>Year High: </strong><%= @stock_quote.year_high %><br/>
+    <strong>Year Low: </strong><%= @stock_quote.year_low %><br/>
+</p>
+
+
+<br/><br/><br/>
+
+<%= link_to 'Edit', edit_stock_path(@stock), class: 'btn btn-default' %>
+<%= link_to 'Back', stocks_path, class: 'btn btn-default' %>
+<%= link_to 'Destroy', stock_path(@stock), method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-default' %>
